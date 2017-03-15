@@ -9,6 +9,9 @@ $message = 'Enter some data and click on the Submit button.';
 $action = filter_input(INPUT_POST, 'action');
 
 switch ($action) {
+        case 'start_app':
+        $message = 'Enter some data and click on the Submit button.';
+        break;
     case 'process_data':
         $name = filter_input(INPUT_POST, 'name');
         $email = filter_input(INPUT_POST, 'email');
