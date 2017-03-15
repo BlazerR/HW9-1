@@ -18,9 +18,9 @@ switch ($action) {
         $message = 'Enter some data and click on the Submit button.';
         break;
     case 'process_data':
-        $name = filter_input(INPUT_POST, 'name');
-        $email = filter_input(INPUT_POST, 'email');
-        $phone = filter_input(INPUT_POST, 'phone');
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
 
         /*************************************************
          * validate and process the name
