@@ -26,17 +26,33 @@ switch ($action) {
         /*************************************************
          * validate and process the email address
          ************************************************/
+         if (empty($email)) {
+            $message = 'You must enter an email address.';
+            break;
+        } else if(strpos($email, '@') === false) {
+            $message = 'The email address must contain an @ sign.';
+            break;
+        } else if(strpos($email, '.') === false) {
+            $message = 'The email address must contain a dot character.';
+            break;
+        }
         // 1. make sure the user enters an email
         // 2. make sure the email address has at least one @ sign and one dot character
 
         /*************************************************
          * validate and process the phone number
          ************************************************/
+         $phone = str_replace('-', '', $phone);
+         $phone = str_replace('(', '', $phone);
+         $phone = str_replace(')', '', $phone);
+         $phone = str_replace(' ', '', $phone);
+        
+        // 1. make sure the user enters at least seven digits, not including formatting characters
          if (strlen($phone) < 7) {
             $message = 'The phone number must contain at least seven digits.';
             break;
         }
-        // 1. make sure the user enters at least seven digits, not including formatting characters
+
         // 2. format the phone number like this 123-4567 or this 123-456-7890
           if (strlen($phone) == 7) {
             $part1 = substr($phone, 0, 3);
