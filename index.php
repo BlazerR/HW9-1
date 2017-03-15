@@ -1,4 +1,9 @@
 <?php
+if (isset($_POST['action'])) {
+    $action =  $_POST['action'];
+} else {
+    $action =  'start_app';
+}
 //set default values
 $name = '';
 $email = '';
@@ -21,6 +26,21 @@ switch ($action) {
          * validate and process the name
          ************************************************/
         // 1. make sure the user enters a name
+        $name = trim($name);
+        $email = trim($email);
+        if (empty($name)) {
+            $message = 'You must enter a name.';
+            break;
+        }
+        $name = strtolower($name);
+        $name = ucwords($name);
+
+        $i = strpos($name, ' ');
+        if ($i === false) {
+            $first_name = $name;
+        } else {
+            $first_name = substr($name, 0, $i);
+        }
         // 2. display the name with only the first letter capitalized
 
         /*************************************************
