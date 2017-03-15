@@ -35,9 +35,12 @@ switch ($action) {
         /*************************************************
          * Display the validation message
          ************************************************/
-        $message = "This page is under construction.\n" .
-                   "Please write the code that process the data.";
-
+        $message = 
+        "Hello $first_name,\n\n" .
+            "Thank you for entering this data:\n\n" .
+            "Name: $name\n" .
+            "Email: $email\n" .
+            "Phone: $phone\n";
         break;
 }
 include 'string_tester.php';
